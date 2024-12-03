@@ -15,13 +15,12 @@ Regex.scan(regex, contents)
 
   # process mul if enabled
   ["mul(" <> _, _full, num1, num2], {true, acc} ->
-    {true, acc ++ [[String.to_integer(num1), String.to_integer(num2)]]}
+    {true, acc ++ [String.to_integer(num1) * String.to_integer(num2)]}
 
   # ignore mul if disabled
   ["mul(" <> _, _full, _num1, _num2], {false, acc} ->
     {false, acc}
 end)
 |> elem(1)
-|> Enum.map(fn [d1, d2] -> d1 * d2 end)
 |> Enum.sum()
 |> IO.inspect()
