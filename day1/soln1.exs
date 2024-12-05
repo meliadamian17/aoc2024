@@ -1,4 +1,4 @@
-{:ok, contents} = File.read("input")
+{:ok, contents} = File.read("test")
 
 new =
   contents
